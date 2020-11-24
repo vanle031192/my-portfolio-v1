@@ -1,25 +1,31 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useContext } from "react";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import { Home, AboutMe, Contact, NotFound } from "./sections/index";
+import { PageHeader } from "./sections";
+import { LanguageProvider, ThemeContext } from "./contexts";
+import { Layout, Affix } from "antd";
+import "./styles/index.css";
 
-function App() {
+const App = () => {
+  const { isDarkMode } = useContext(ThemeContext);
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <LanguageProvider>
+        <Layout id={isDarkMode ? "app--darkMode" : "app"}>
+          <Affix offsetTop={0}>
+            <PageHeader />
+          </Affix>
+
+          <Switch>
+            <Route exact path="/" component={Home} />
+            <Route exact path="/about-me" component={AboutMe} />
+            <Route exact path="/contact" component={Contact} />
+            <Route component={NotFound} />
+          </Switch>
+        </Layout>
+      </LanguageProvider>
+    </Router>
   );
-}
+};
 
 export default App;
