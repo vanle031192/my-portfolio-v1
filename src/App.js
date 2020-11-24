@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import { HashRouter as Router, Switch, Route } from "react-router-dom";
 import { Home, AboutMe, Contact, NotFound } from "./sections/index";
 import { PageHeader } from "./sections";
 import { LanguageProvider, ThemeContext } from "./contexts";
@@ -17,9 +17,9 @@ const App = () => {
           </Affix>
 
           <Switch>
-            <Route exact path="/my-portfolio-v1" component={Home} />
-            <Route exact path="/my-portfolio-v1/about-me" component={AboutMe} />
-            <Route exact path="/my-portfolio-v1/contact" component={Contact} />
+            <Route exact path="/" component={Home} />
+            <Route exact path="/about-me" component={AboutMe} />
+            <Route exact path="/contact" component={Contact} />
             <Route component={NotFound} />
           </Switch>
         </Layout>

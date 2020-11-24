@@ -63,19 +63,19 @@ export const MenuItems = () => {
   return (
     <Menu mode="horizontal" selectable={false} className="menu">
       <Item key="/home">
-        <NavLink exact to="/my-portfolio-v1" activeStyle={activeMenuStyles}>
+        <NavLink exact to="/" activeStyle={activeMenuStyles}>
           <HomeOutlined />
           {home}
         </NavLink>
       </Item>
       <Item key="/about-me">
-        <NavLink to="/my-portfolio-v1/about-me" activeStyle={activeMenuStyles}>
+        <NavLink to="/about-me" activeStyle={activeMenuStyles}>
           <InfoCircleOutlined />
           {aboutMe}
         </NavLink>
       </Item>
       <Item key="/contact">
-        <NavLink to="/my-portfolio-v1/contact" activeStyle={activeMenuStyles}>
+        <NavLink to="/contact" activeStyle={activeMenuStyles}>
           <WhatsAppOutlined />
           {contact}
         </NavLink>
